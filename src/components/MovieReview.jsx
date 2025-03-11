@@ -7,6 +7,10 @@ const MovieReview = () => {
 
         <div>
             <Link className="review" to="/"></Link>
+            <p className="review-text">
+                testo recensione
+            </p>
+            <address><i>Nome autore recensione</i></address>
         </div>
 
     )
