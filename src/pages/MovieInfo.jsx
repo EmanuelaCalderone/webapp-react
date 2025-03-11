@@ -1,4 +1,6 @@
 import MovieReview from "../components/MovieReview"
+//importo Link del modulo react-router
+import { Link } from "react-router-dom"
 
 const MovieInfo = () => {
     return (
@@ -12,6 +14,15 @@ const MovieInfo = () => {
                 <p>trama</p>
                 <MovieReview />
             </div>
+
+            <section className="reviews">
+                <h4>Le recensioni della community</h4>
+                <p>Elenco recensioni</p>
+            </section>
+
+            <footer>
+                <Link className="#" to="/">Torna alla Home</Link>
+            </footer>
         </>
     )
 }
