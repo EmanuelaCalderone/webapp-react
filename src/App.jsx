@@ -9,6 +9,9 @@ import DefaultLayout from './layouts/DefaultLayout';
 //importo rotte da react-router (radice rotte, blocco rotte, singole rotte)
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+//importo la pagina NotFoundPage
+import NotFoundPage from './pages/NotFoundPage';
+
 
 function App() {
 
