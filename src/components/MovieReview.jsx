@@ -1,18 +1,25 @@
-//importo Link del modulo react-router
-import { Link } from "react-router-dom"
+const MovieReview = ({ reviewProp }) => {
 
-const MovieReview = () => {
+    //destrutturazione prop
+    const { name, vote, text } = reviewProp
 
     return (
-
-        <div>
-            <Link className="review" to="/"></Link>
-            <p className="review-text">
-                testo recensione
-            </p>
-            <address><i>Nome autore recensione</i></address>
+        <div className="review">
+            <div className="card-body">
+                <p className="card-text">
+                    {text}
+                </p>
+                <strong>
+                    Vote: {vote}
+                </strong>
+                <address>
+                    <i>
+                        By {name}
+                    </i>
+                </address>
+            </div>
         </div>
-
     )
+
 }
-export default MovieReview;
+export default MovieReview
