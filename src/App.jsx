@@ -20,6 +20,7 @@ function App() {
           <Route index path="/" element={<HomePage />} />
           {/* Dettagli film */}
           <Route path="/movies/:id" element={<MovieInfo />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
