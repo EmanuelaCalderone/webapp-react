@@ -81,7 +81,7 @@ const MovieInfo = () => {
 
             {/* componente form */}
             <section>
-                <ReviewForm movie_id={movie.id} reloadRevies={fetchMovie} />
+                <ReviewForm movie_id={movie.id} reloadReviews={fetchMovie} />
             </section>
 
             <footer>
