@@ -4,8 +4,8 @@ import axios from 'axios';
 //importo lo useState
 import { useState } from 'react';
 
-//definisco il componente passando movie_id e realoadReviews come props
-const ReviewForm = ({ movie_id, realoadReviews }) => {
+//definisco il componente passando movie_id e reloadReviews come props
+const ReviewForm = ({ movie_id, reloadReviews }) => {
 
     //definisco lo stato iniziale del form
     const initialValue = { name: "", text: "", vote: 1 };
@@ -35,7 +35,7 @@ const ReviewForm = ({ movie_id, realoadReviews }) => {
                     //resetto il form dopo l'invio
                     setFormData(initialValue)
                     //ricarico le recensioni
-                    realoadReviews()
+                    reloadReviews()
                 }
             )
             //gestione errore
