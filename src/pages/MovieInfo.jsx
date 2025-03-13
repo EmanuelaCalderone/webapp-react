@@ -29,18 +29,20 @@ const MovieInfo = () => {
         axios.get("http://localhost:3000/api/movies/" + id)
             .then(
                 res => {
-                    setMovie(res.data)
+                    setMovie(res.data);
                 }
             )
             .catch(err => {
                 console.log(err);
-                if (err.status === 404) redirect("/404")
+                if (err.response?.status === 404) redirect("/404")
             }
             )
     }
 
     //chiamata all'API per montaggio componente
-    useEffect(fetchMovie, []);
+    useEffect(() => {
+        fetchMovie();
+    }, []);
 
     //funzione di rendering delle recensioni
     const renderReviews = () => {
@@ -85,10 +87,10 @@ const MovieInfo = () => {
             </section>
 
             <footer>
-                <Link className="#" to="/">Torna alla Home</Link>
+                <Link className="footer-form" to="/">Torna alla Home</Link>
             </footer>
         </>
-    )
+    );
 }
 
-export default MovieInfo
+export default MovieInfo;

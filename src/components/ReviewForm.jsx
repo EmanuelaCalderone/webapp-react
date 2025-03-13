@@ -40,42 +40,42 @@ const ReviewForm = ({ movie_id, reloadReviews }) => {
             //gestione errore
             .catch(err => console.log(err)
             )
+    };
 
-        return (
-            //creo il div con il form
-            <div className="card">
-                <header className="card-header">
-                    <h5>Add your review</h5>
-                </header>
-                <div className="card-body">
-                    {/*inserisco form per l'inserimento della recensione*/}
-                    <form onSubmit={submitReview}>
-                        <div className="form">
-                            <label>User</label>
-                            {/*creo l'input per il nome utente*/}
-                            <input type="text" name="name" className="form-control" value={formData.name} onChange={setFieldValue} />
-                        </div>
-                        <div className="form">
-                            <label>Review</label>
-                            {/*area testo per la recensione*/}
-                            <textarea className="form-control" name="text" value={formData.text} onChange={setFieldValue} ></textarea>
-                        </div>
-                        <div className="form">
-                            <label>Voto</label>
-                            <input type="number" min="1" max="5" className="form-control" name='vote' value={formData.vote} onChange={setFieldValue} />
-                        </div>
-                        <div className="button-form">
-                            {/*pulsante per l'invio*/}
-                            <button type="submit" className="button">
-                                Send
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
+    return (
+        //creo il div con il form
+        <div className="card">
+            <header className="card-header">
+                <h5>Add your review</h5>
+            </header>
+            <div className="card-body">
+                {/*inserisco form per l'inserimento della recensione*/}
+                <form onSubmit={submitReview}>
+                    <div className="form">
+                        <label>User</label>
+                        {/*creo l'input per il nome utente*/}
+                        <input type="text" name="name" className="form-control" value={formData.name} onChange={setFieldValue} />
+                    </div>
+                    <div className="form">
+                        <label>Review</label>
+                        {/*area testo per la recensione*/}
+                        <textarea className="form-control" name="text" value={formData.text} onChange={setFieldValue} ></textarea>
+                    </div>
+                    <div className="form">
+                        <label>Voto</label>
+                        <input type="number" min="1" max="5" className="form-control" name='vote' value={formData.vote} onChange={setFieldValue} />
+                    </div>
+                    <div className="button-form">
+                        {/*pulsante per l'invio*/}
+                        <button type="submit" className="button">
+                            Send
+                        </button>
+                    </div>
+                </form>
             </div>
 
-        )
-    }
+        </div>
+    );
 }
+
 export default ReviewForm

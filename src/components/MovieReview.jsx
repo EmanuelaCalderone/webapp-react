@@ -6,17 +6,20 @@ const MovieReview = ({ reviewProp }) => {
     return (
         <div className="review">
             <div className="card-body">
-                <p className="card-text">
-                    {text}
+                <p className="user-review">
+                    <strong>Review: </strong> {text}
                 </p>
-                <strong>
-                    Vote: {vote}
-                </strong>
+                <p>
+                    <strong>
+                        Vote: {vote}
+                    </strong>
+                </p>
                 <address>
                     <i>
-                        By {name}
+                        <strong>By: </strong> {name}
                     </i>
                 </address>
+
             </div>
         </div>
     )
