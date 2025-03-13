@@ -10,6 +10,9 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 //importo componente di listato
 import MovieReview from "../components/MovieReview"
 
+//importo il componente con il form
+import ReviewForm from './../components/ReviewForm';
+
 const MovieInfo = () => {
 
     //recupero l'id del film
@@ -69,9 +72,16 @@ const MovieInfo = () => {
             </header>
 
             <section id="reviews">
-                <h4>Le recensioni della nostra community</h4>
+                <header className="reviews-header">
+                    <h4>Our community reviews</h4>
+                </header>
                 {/* recensioni */}
                 {renderReviews()}
+            </section>
+
+            {/* componente form */}
+            <section>
+                <ReviewForm movie_id={movie.id} reloadRevies={fetchMovie} />
             </section>
 
             <footer>
