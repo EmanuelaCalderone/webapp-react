@@ -6,8 +6,8 @@ import MovieInfo from './pages/MovieInfo';
 //importo layout
 import DefaultLayout from './layouts/DefaultLayout';
 
-//importo rotte da react-router (radice rotte, blocco rotte, singole rotte)
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//importo rotte da react-router (radice rotte, blocco rotte, singole rotte e Outlet)
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 
 //importo la pagina NotFoundPage
 import NotFoundPage from './pages/NotFoundPage';
@@ -15,7 +15,13 @@ import NotFoundPage from './pages/NotFoundPage';
 //importo la rotta della pagina CreateMoviePage
 import CreateMoviePage from './pages/CreateMoviePage';
 
+//importo il loader
+import Loader from "./components/Loader";
 
+//importo l'header
+import Header from "./components/Header";
+
+//definisco il componente principale
 function App() {
 
   return (
@@ -35,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

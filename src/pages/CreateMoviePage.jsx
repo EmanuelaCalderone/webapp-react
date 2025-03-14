@@ -3,7 +3,9 @@ import axios from "axios";
 // importo Link e useNavigate del modulo react-router
 import { Link, useNavigate } from "react-router-dom"
 // importo lo useState per la gestione dei dati del form
-import { useState } from "react";
+import { useState, useContext } from "react";
+//importo il LoaderContext
+import { LoaderContext } from "../context/LoaderContext";
 
 //stato iniziale del form con i campi per l'aggiunta del nuovo film
 const initialData = {
@@ -26,6 +28,8 @@ const CreateMoviePage = () => {
 
     //definisco gli stati iniziali del form, nizializzandolo con initialData
     const [formDataObj, setFormDataObj] = useState(initialData);
+    //uso il LoaderContext
+    const { showLoader, hideLoader } = useContext(LoaderContext);
 
     //funzione per aggiornare lo stato dopo compilazione form
     const setFieldValue = (e) => {
@@ -41,6 +45,9 @@ const CreateMoviePage = () => {
         //evito comportamento predefinito form
         e.preventDefault();
 
+        //attivo il loader
+        showLoader();
+
         //creo l'oggetto formData per inviare i dati del form in formato multipart/form-data, necessario per l'upload di file come immagini
         const formData = new FormData();
         formData.append("title", formDataObj.title);
@@ -51,16 +58,21 @@ const CreateMoviePage = () => {
         formData.append("image", formDataObj.image);
 
         //richiesta post per inviare i dati del film al backend
+
         axios.post(endpointApi, formData, { headers: { "Content-Type": "multipart/form-data" } })
-            .then(
-                //reindirizzo alla home dopo l'invio dei dati
-                () => { navigate("/") }
-            )
+            .then(() => {
+                hideLoader(); //nascondo il loader dopo l'invio
+                //renderizzo alla home dopo l'invio dei dati
+                navigate("/");
+            })
+
             //gestione errori
             .catch((err) => {
                 console.log(err);
+                //nascondo il loader anche in caso di errore
+                hideLoader();
             });
-    }
+    };
 
     return (
         <>
