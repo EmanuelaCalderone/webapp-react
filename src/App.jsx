@@ -12,6 +12,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //importo la pagina NotFoundPage
 import NotFoundPage from './pages/NotFoundPage';
 
+//importo la rotta della pagina CreateMoviePage
+import CreateMoviePage from './pages/CreateMoviePage';
+
 
 function App() {
 
@@ -21,6 +24,8 @@ function App() {
         <Route element={<DefaultLayout />}>
           {/* HomePage */}
           <Route index path="/" element={<HomePage />} />
+          {/* Inserisco la rotta per la pagina con il form per l'inserimento del nuovo film */}
+          <Route path="/movies/create" element={<CreateMoviePage />} />
           {/* Dettagli film */}
           <Route path="/movies/:id" element={<MovieInfo />} />
           <Route path="*" element={<NotFoundPage />} />
