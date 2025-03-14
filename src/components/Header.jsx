@@ -6,7 +6,10 @@ const Header = () => {
     return (
         <nav>
             <div>
-                <Link className="header-navbar" to="/">MOVIES</Link>            </div>
+                <Link className="header-navbar" to="/">MOVIES</Link>
+                {/* aggiungo il link alla nuova rotta appena creata per l'inserimento di nuovi film */}
+                <Link className="#" to="/movies/create">Add Movie</Link>
+            </div>
         </nav>
     )
 }
