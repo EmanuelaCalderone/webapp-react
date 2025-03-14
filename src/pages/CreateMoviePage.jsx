@@ -41,8 +41,17 @@ const CreateMoviePage = () => {
         //evito comportamento predefinito form
         e.preventDefault();
 
+        //creo l'oggetto formData per inviare i dati del form in formato multipart/form-data, necessario per l'upload di file come immagini
+        const formData = new FormData();
+        formData.append("title", formDataObj.title);
+        formData.append("director", formDataObj.director);
+        formData.append("genre", formDataObj.genre);
+        formData.append("release_year", formDataObj.release_year);
+        formData.append("abstract", formDataObj.abstract);
+        formData.append("image", formDataObj.image);
+
         //richiesta post per inviare i dati del film al backend
-        axios.post(endpointApi, formDataObj, { headers: { "Content-Type": "multipart/form-data" } })
+        axios.post(endpointApi, formData, { headers: { "Content-Type": "multipart/form-data" } })
             .then(
                 //reindirizzo alla home dopo l'invio dei dati
                 () => { navigate("/") }
